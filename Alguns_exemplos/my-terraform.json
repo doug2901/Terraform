@@ -1,0 +1,611 @@
+{
+  "version": 4,
+  "terraform_version": "0.14.4",
+  "serial": 19,
+  "lineage": "358c9e12-ade3-17bb-e423-c789632a30af",
+  "outputs": {},
+  "resources": [
+    {
+      "module": "module.aws",
+      "mode": "managed",
+      "type": "aws_key_pair",
+      "name": "terraform-study",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-2:372413238702:key-pair/terraform-study",
+            "fingerprint": "44:32:7a:2b:30:51:28:a2:de:e0:b8:82:7f:c3:d2:c8",
+            "id": "terraform-study",
+            "key_name": "terraform-study",
+            "key_name_prefix": null,
+            "key_pair_id": "key-0f81508197f1980b3",
+            "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAkEMPNn/n+67EFXJ5TMlELPLrFLvll0RVSMVoCL5P2TFCl1ibgNkfl0l7cmtVpFQSwsyotvE+qZ0wakxV4oOev53RUGsAARvsn5s6vjT7H8bSrQG07TgLWeSVWh4xb9icWTJGcC1tIYPEzX0TmEzn8Xt/8d8OHZWn9i0+VcaWYoxhTW08eOjnQM6Zig93MUHlRY5fiK+e6yU24JhXDwjUGtbSBdfU0eSzSrhymUrBPuWcP4jy1IJtCbNidYYMN4XPeZ8spGNhXL9EQQLzotBkD+iKKDcNEWh5Tn6Fa+87cOcl4SrO107RzGsjfJ8zu5ZGCpkBb5G6Z5UzEmNea19Btw== rsa-key-20210122",
+            "tags": {}
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.azure",
+      "mode": "managed",
+      "type": "azurerm_app_service",
+      "name": "hml-dougapp",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "app_service_plan_id": "/subscriptions/aa5e6421-56b7-48bf-b549-4367bb60988f/resourceGroups/RG-APP-Services/providers/Microsoft.Web/serverfarms/FreePlanWindows",
+            "app_settings": {
+              "ANCM_ADDITIONAL_ERROR_PAGE_LINK": "https://hml-dougapp.scm.azurewebsites.net/detectors?type=tools\u0026name=eventviewer",
+              "WEBSITE_RUN_FROM_PACKAGE": "1"
+            },
+            "auth_settings": [
+              {
+                "active_directory": [],
+                "additional_login_params": {},
+                "allowed_external_redirect_urls": [],
+                "default_provider": "",
+                "enabled": false,
+                "facebook": [],
+                "google": [],
+                "issuer": "",
+                "microsoft": [],
+                "runtime_version": "",
+                "token_refresh_extension_hours": 0,
+                "token_store_enabled": false,
+                "twitter": [],
+                "unauthenticated_client_action": ""
+              }
+            ],
+            "backup": [],
+            "client_affinity_enabled": true,
+            "client_cert_enabled": false,
+            "connection_string": [],
+            "custom_domain_verification_id": "01CEDFB03BFD8153EBC6FE2CBFB42A7C4AAEB519D49CE773AF8E72F0E3FEEB7A",
+            "default_site_hostname": "hml-dougapp.azurewebsites.net",
+            "enabled": true,
+            "https_only": false,
+            "id": "/subscriptions/aa5e6421-56b7-48bf-b549-4367bb60988f/resourceGroups/RG-APP-Services/providers/Microsoft.Web/sites/hml-dougapp",
+            "identity": [],
+            "location": "eastus2",
+            "logs": [
+              {
+                "application_logs": [
+                  {
+                    "azure_blob_storage": [],
+                    "file_system_level": "Off"
+                  }
+                ],
+                "detailed_error_messages_enabled": false,
+                "failed_request_tracing_enabled": false,
+                "http_logs": [
+                  {
+                    "azure_blob_storage": [],
+                    "file_system": []
+                  }
+                ]
+              }
+            ],
+            "name": "hml-dougapp",
+            "outbound_ip_address_list": [
+              "52.167.191.52",
+              "52.177.83.21",
+              "52.177.86.28",
+              "52.177.161.166",
+              "52.177.161.232",
+              "52.177.164.228"
+            ],
+            "outbound_ip_addresses": "52.167.191.52,52.177.83.21,52.177.86.28,52.177.161.166,52.177.161.232,52.177.164.228",
+            "possible_outbound_ip_address_list": [
+              "52.167.191.52",
+              "52.177.83.21",
+              "52.177.86.28",
+              "52.177.161.166",
+              "52.177.161.232",
+              "52.177.164.228",
+              "52.177.165.249",
+              "52.177.166.227",
+              "52.179.224.122",
+              "52.179.225.14",
+              "52.179.225.43",
+              "52.179.226.5",
+              "52.179.228.230",
+              "52.179.229.207",
+              "52.179.230.133",
+              "52.179.231.101",
+              "52.179.231.244",
+              "52.184.232.34",
+              "52.184.232.150",
+              "52.184.233.37",
+              "52.184.233.50",
+              "52.184.234.61",
+              "40.65.241.115",
+              "52.138.104.0",
+              "52.138.108.78",
+              "52.184.234.81",
+              "52.184.234.95",
+              "40.65.211.82",
+              "40.70.168.245",
+              "40.70.170.61"
+            ],
+            "possible_outbound_ip_addresses": "52.167.191.52,52.177.83.21,52.177.86.28,52.177.161.166,52.177.161.232,52.177.164.228,52.177.165.249,52.177.166.227,52.179.224.122,52.179.225.14,52.179.225.43,52.179.226.5,52.179.228.230,52.179.229.207,52.179.230.133,52.179.231.101,52.179.231.244,52.184.232.34,52.184.232.150,52.184.233.37,52.184.233.50,52.184.234.61,40.65.241.115,52.138.104.0,52.138.108.78,52.184.234.81,52.184.234.95,40.65.211.82,40.70.168.245,40.70.170.61",
+            "resource_group_name": "RG-APP-Services",
+            "site_config": [
+              {
+                "always_on": false,
+                "app_command_line": "",
+                "auto_swap_slot_name": "",
+                "cors": [],
+                "default_documents": [
+                  "Default.htm",
+                  "Default.html",
+                  "Default.asp",
+                  "index.htm",
+                  "index.html",
+                  "iisstart.htm",
+                  "default.aspx",
+                  "index.php",
+                  "hostingstart.html"
+                ],
+                "dotnet_framework_version": "v4.0",
+                "ftps_state": "AllAllowed",
+                "health_check_path": "",
+                "http2_enabled": false,
+                "ip_restriction": [],
+                "java_container": "",
+                "java_container_version": "",
+                "java_version": "",
+                "linux_fx_version": "",
+                "local_mysql_enabled": false,
+                "managed_pipeline_mode": "Integrated",
+                "min_tls_version": "1.2",
+                "php_version": "",
+                "python_version": "",
+                "remote_debugging_enabled": false,
+                "remote_debugging_version": "VS2019",
+                "scm_ip_restriction": [],
+                "scm_type": "VSTSRM",
+                "scm_use_main_ip_restriction": false,
+                "use_32_bit_worker_process": true,
+                "websockets_enabled": false,
+                "windows_fx_version": ""
+              }
+            ],
+            "site_credential": [
+              {
+                "password": "94wMzWkWH8REAgjlmoi0R95k98HHfqyR3r7uLRfsjp17Mn6gKksmrLuPqFuA",
+                "username": "$hml-dougapp"
+              }
+            ],
+            "source_control": [
+              {
+                "branch": "master",
+                "manual_integration": false,
+                "repo_url": "VSTSRM",
+                "rollback_enabled": false,
+                "use_mercurial": false
+              }
+            ],
+            "storage_account": [],
+            "tags": {
+              "Study_Project": "APP-Services"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null,
+              "read": null,
+              "update": null
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIwIn0=",
+          "dependencies": [
+            "module.azure.azurerm_app_service_plan.FreePlanWindows",
+            "module.azure.azurerm_resource_group.RG-APP-Services"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.azure",
+      "mode": "managed",
+      "type": "azurerm_app_service",
+      "name": "prd-dougapp",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "app_service_plan_id": "/subscriptions/aa5e6421-56b7-48bf-b549-4367bb60988f/resourceGroups/RG-APP-Services/providers/Microsoft.Web/serverfarms/FreePlanWindows",
+            "app_settings": {
+              "ANCM_ADDITIONAL_ERROR_PAGE_LINK": "https://prd-dougapp.scm.azurewebsites.net/detectors?type=tools\u0026name=eventviewer",
+              "WEBSITE_RUN_FROM_PACKAGE": "1"
+            },
+            "auth_settings": [
+              {
+                "active_directory": [],
+                "additional_login_params": {},
+                "allowed_external_redirect_urls": [],
+                "default_provider": "",
+                "enabled": false,
+                "facebook": [],
+                "google": [],
+                "issuer": "",
+                "microsoft": [],
+                "runtime_version": "",
+                "token_refresh_extension_hours": 0,
+                "token_store_enabled": false,
+                "twitter": [],
+                "unauthenticated_client_action": ""
+              }
+            ],
+            "backup": [],
+            "client_affinity_enabled": true,
+            "client_cert_enabled": false,
+            "connection_string": [],
+            "custom_domain_verification_id": "01CEDFB03BFD8153EBC6FE2CBFB42A7C4AAEB519D49CE773AF8E72F0E3FEEB7A",
+            "default_site_hostname": "prd-dougapp.azurewebsites.net",
+            "enabled": true,
+            "https_only": false,
+            "id": "/subscriptions/aa5e6421-56b7-48bf-b549-4367bb60988f/resourceGroups/RG-APP-Services/providers/Microsoft.Web/sites/prd-dougapp",
+            "identity": [],
+            "location": "eastus2",
+            "logs": [
+              {
+                "application_logs": [
+                  {
+                    "azure_blob_storage": [],
+                    "file_system_level": "Off"
+                  }
+                ],
+                "detailed_error_messages_enabled": false,
+                "failed_request_tracing_enabled": false,
+                "http_logs": [
+                  {
+                    "azure_blob_storage": [],
+                    "file_system": []
+                  }
+                ]
+              }
+            ],
+            "name": "prd-dougapp",
+            "outbound_ip_address_list": [
+              "52.167.191.52",
+              "52.177.83.21",
+              "52.177.86.28",
+              "52.177.161.166",
+              "52.177.161.232",
+              "52.177.164.228"
+            ],
+            "outbound_ip_addresses": "52.167.191.52,52.177.83.21,52.177.86.28,52.177.161.166,52.177.161.232,52.177.164.228",
+            "possible_outbound_ip_address_list": [
+              "52.167.191.52",
+              "52.177.83.21",
+              "52.177.86.28",
+              "52.177.161.166",
+              "52.177.161.232",
+              "52.177.164.228",
+              "52.177.165.249",
+              "52.177.166.227",
+              "52.179.224.122",
+              "52.179.225.14",
+              "52.179.225.43",
+              "52.179.226.5",
+              "52.179.228.230",
+              "52.179.229.207",
+              "52.179.230.133",
+              "52.179.231.101",
+              "52.179.231.244",
+              "52.184.232.34",
+              "52.184.232.150",
+              "52.184.233.37",
+              "52.184.233.50",
+              "52.184.234.61",
+              "40.65.241.115",
+              "52.138.104.0",
+              "52.138.108.78",
+              "52.184.234.81",
+              "52.184.234.95",
+              "40.65.211.82",
+              "40.70.168.245",
+              "40.70.170.61"
+            ],
+            "possible_outbound_ip_addresses": "52.167.191.52,52.177.83.21,52.177.86.28,52.177.161.166,52.177.161.232,52.177.164.228,52.177.165.249,52.177.166.227,52.179.224.122,52.179.225.14,52.179.225.43,52.179.226.5,52.179.228.230,52.179.229.207,52.179.230.133,52.179.231.101,52.179.231.244,52.184.232.34,52.184.232.150,52.184.233.37,52.184.233.50,52.184.234.61,40.65.241.115,52.138.104.0,52.138.108.78,52.184.234.81,52.184.234.95,40.65.211.82,40.70.168.245,40.70.170.61",
+            "resource_group_name": "RG-APP-Services",
+            "site_config": [
+              {
+                "always_on": false,
+                "app_command_line": "",
+                "auto_swap_slot_name": "",
+                "cors": [],
+                "default_documents": [
+                  "Default.htm",
+                  "Default.html",
+                  "Default.asp",
+                  "index.htm",
+                  "index.html",
+                  "iisstart.htm",
+                  "default.aspx",
+                  "index.php",
+                  "hostingstart.html"
+                ],
+                "dotnet_framework_version": "v4.0",
+                "ftps_state": "AllAllowed",
+                "health_check_path": "",
+                "http2_enabled": false,
+                "ip_restriction": [],
+                "java_container": "",
+                "java_container_version": "",
+                "java_version": "",
+                "linux_fx_version": "",
+                "local_mysql_enabled": false,
+                "managed_pipeline_mode": "Integrated",
+                "min_tls_version": "1.2",
+                "php_version": "",
+                "python_version": "",
+                "remote_debugging_enabled": false,
+                "remote_debugging_version": "VS2019",
+                "scm_ip_restriction": [],
+                "scm_type": "VSTSRM",
+                "scm_use_main_ip_restriction": false,
+                "use_32_bit_worker_process": true,
+                "websockets_enabled": false,
+                "windows_fx_version": ""
+              }
+            ],
+            "site_credential": [
+              {
+                "password": "8AhjZHfCMkxno0qztyHDaZq7Skdvof8jtvp9sXPTyhWsdEcei3ywDfqh617a",
+                "username": "$prd-dougapp"
+              }
+            ],
+            "source_control": [
+              {
+                "branch": "master",
+                "manual_integration": false,
+                "repo_url": "VSTSRM",
+                "rollback_enabled": false,
+                "use_mercurial": false
+              }
+            ],
+            "storage_account": [],
+            "tags": {
+              "Study_Project": "APP-Services"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null,
+              "read": null,
+              "update": null
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIwIn0=",
+          "dependencies": [
+            "module.azure.azurerm_app_service_plan.FreePlanWindows",
+            "module.azure.azurerm_resource_group.RG-APP-Services"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.azure",
+      "mode": "managed",
+      "type": "azurerm_app_service_plan",
+      "name": "FreePlanWindows",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "app_service_environment_id": "",
+            "id": "/subscriptions/aa5e6421-56b7-48bf-b549-4367bb60988f/resourceGroups/RG-APP-Services/providers/Microsoft.Web/serverfarms/FreePlanWindows",
+            "is_xenon": false,
+            "kind": "app",
+            "location": "eastus2",
+            "maximum_elastic_worker_count": 1,
+            "maximum_number_of_workers": 1,
+            "name": "FreePlanWindows",
+            "per_site_scaling": false,
+            "reserved": false,
+            "resource_group_name": "RG-APP-Services",
+            "sku": [
+              {
+                "capacity": 0,
+                "size": "F1",
+                "tier": "Free"
+              }
+            ],
+            "tags": {
+              "Study_Project": "APP-Services"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null,
+              "read": null,
+              "update": null
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozNjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjozNjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIwIn0=",
+          "dependencies": [
+            "module.azure.azurerm_resource_group.RG-APP-Services"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.azure",
+      "mode": "managed",
+      "type": "azurerm_resource_group",
+      "name": "RG-APP-Services",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/aa5e6421-56b7-48bf-b549-4367bb60988f/resourceGroups/RG-APP-Services",
+            "location": "eastus2",
+            "name": "RG-APP-Services",
+            "tags": {
+              "Study_Project": "APP-Services"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo1NDAwMDAwMDAwMDAwLCJkZWxldGUiOjU0MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjo1NDAwMDAwMDAwMDAwfX0="
+        }
+      ]
+    },
+    {
+      "module": "module.azure",
+      "mode": "managed",
+      "type": "azurerm_resource_group",
+      "name": "RG-Storage",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/aa5e6421-56b7-48bf-b549-4367bb60988f/resourceGroups/RG-Storage",
+            "location": "eastus2",
+            "name": "RG-Storage",
+            "tags": {
+              "Study_Project": "Storage"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null,
+              "read": null,
+              "update": null
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo1NDAwMDAwMDAwMDAwLCJkZWxldGUiOjU0MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjo1NDAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIwIn0="
+        }
+      ]
+    },
+    {
+      "module": "module.azure",
+      "mode": "managed",
+      "type": "azurerm_storage_account",
+      "name": "dnfcorpsacloudshell",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "access_tier": "Hot",
+            "account_kind": "StorageV2",
+            "account_replication_type": "LRS",
+            "account_tier": "Standard",
+            "allow_blob_public_access": false,
+            "blob_properties": [],
+            "custom_domain": [],
+            "enable_https_traffic_only": true,
+            "id": "/subscriptions/aa5e6421-56b7-48bf-b549-4367bb60988f/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/dnfcorpsacloudshell",
+            "identity": [],
+            "is_hns_enabled": false,
+            "large_file_share_enabled": null,
+            "location": "eastus2",
+            "min_tls_version": "TLS1_0",
+            "name": "dnfcorpsacloudshell",
+            "network_rules": [
+              {
+                "bypass": [
+                  "AzureServices"
+                ],
+                "default_action": "Allow",
+                "ip_rules": [],
+                "virtual_network_subnet_ids": []
+              }
+            ],
+            "primary_access_key": "sDWdTlPJWvCBXXclrE62oCxd0qOIIsBzEr6s6pFA8hmItZl8h1u7HdNC3koMlbUANRfWIKvynNFA5lV3xS+05g==",
+            "primary_blob_connection_string": "DefaultEndpointsProtocol=https;BlobEndpoint=https://dnfcorpsacloudshell.blob.core.windows.net/;AccountName=dnfcorpsacloudshell;AccountKey=sDWdTlPJWvCBXXclrE62oCxd0qOIIsBzEr6s6pFA8hmItZl8h1u7HdNC3koMlbUANRfWIKvynNFA5lV3xS+05g==",
+            "primary_blob_endpoint": "https://dnfcorpsacloudshell.blob.core.windows.net/",
+            "primary_blob_host": "dnfcorpsacloudshell.blob.core.windows.net",
+            "primary_connection_string": "DefaultEndpointsProtocol=https;AccountName=dnfcorpsacloudshell;AccountKey=sDWdTlPJWvCBXXclrE62oCxd0qOIIsBzEr6s6pFA8hmItZl8h1u7HdNC3koMlbUANRfWIKvynNFA5lV3xS+05g==;EndpointSuffix=core.windows.net",
+            "primary_dfs_endpoint": "https://dnfcorpsacloudshell.dfs.core.windows.net/",
+            "primary_dfs_host": "dnfcorpsacloudshell.dfs.core.windows.net",
+            "primary_file_endpoint": "https://dnfcorpsacloudshell.file.core.windows.net/",
+            "primary_file_host": "dnfcorpsacloudshell.file.core.windows.net",
+            "primary_location": "eastus2",
+            "primary_queue_endpoint": "https://dnfcorpsacloudshell.queue.core.windows.net/",
+            "primary_queue_host": "dnfcorpsacloudshell.queue.core.windows.net",
+            "primary_table_endpoint": "https://dnfcorpsacloudshell.table.core.windows.net/",
+            "primary_table_host": "dnfcorpsacloudshell.table.core.windows.net",
+            "primary_web_endpoint": "https://dnfcorpsacloudshell.z20.web.core.windows.net/",
+            "primary_web_host": "dnfcorpsacloudshell.z20.web.core.windows.net",
+            "queue_properties": [
+              {
+                "cors_rule": [],
+                "hour_metrics": [
+                  {
+                    "enabled": true,
+                    "include_apis": true,
+                    "retention_policy_days": 7,
+                    "version": "1.0"
+                  }
+                ],
+                "logging": [
+                  {
+                    "delete": false,
+                    "read": false,
+                    "retention_policy_days": 0,
+                    "version": "1.0",
+                    "write": false
+                  }
+                ],
+                "minute_metrics": [
+                  {
+                    "enabled": false,
+                    "include_apis": false,
+                    "retention_policy_days": 0,
+                    "version": "1.0"
+                  }
+                ]
+              }
+            ],
+            "resource_group_name": "RG-Storage",
+            "secondary_access_key": "Cy+58oRLzbhrZhkSffRBMaFDXSXdvWcyqR7/O1fO5ghuWqYrM435W1i4eaeVcILVuiMKpMW7tFDd7ob8EkVKoQ==",
+            "secondary_blob_connection_string": "",
+            "secondary_blob_endpoint": null,
+            "secondary_blob_host": null,
+            "secondary_connection_string": "DefaultEndpointsProtocol=https;AccountName=dnfcorpsacloudshell;AccountKey=Cy+58oRLzbhrZhkSffRBMaFDXSXdvWcyqR7/O1fO5ghuWqYrM435W1i4eaeVcILVuiMKpMW7tFDd7ob8EkVKoQ==;EndpointSuffix=core.windows.net",
+            "secondary_dfs_endpoint": null,
+            "secondary_dfs_host": null,
+            "secondary_file_endpoint": null,
+            "secondary_file_host": null,
+            "secondary_location": "",
+            "secondary_queue_endpoint": null,
+            "secondary_queue_host": null,
+            "secondary_table_endpoint": null,
+            "secondary_table_host": null,
+            "secondary_web_endpoint": null,
+            "secondary_web_host": null,
+            "static_website": [],
+            "tags": {
+              "ms-resource-usage": "azure-cloud-shell"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null,
+              "read": null,
+              "update": null
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozNjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjozNjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIyIn0=",
+          "dependencies": [
+            "module.azure.azurerm_resource_group.RG-Storage"
+          ]
+        }
+      ]
+    }
+  ]
+}
