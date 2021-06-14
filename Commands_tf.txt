@@ -1,0 +1,27 @@
+# Rodar o docker no Linux
+docker run --name terraform -it -v $PWD:/app -w /app --entrypoint "" hashicorp/terraform:light sh
+
+#Iniciar container
+docker start terraform
+
+#conectar
+docker exec -it terraform sh
+
+# Conectar o Container terraform no azure
+# Documentação: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret
+
+# list subscriptions
+az account list
+
+# Create the Serivce service Principal
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID"
+
+# It necessary to export some variables
+$ export ARM_CLIENT_ID="00000000-0000-0000-0000-000000000000"
+$ export ARM_CLIENT_SECRET="00000000-0000-0000-0000-000000000000"
+$ export ARM_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
+$ export ARM_TENANT_ID="00000000-0000-0000-0000-000000000000"
+
+
+
+
