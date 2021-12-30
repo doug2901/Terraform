@@ -22,6 +22,8 @@ $ export ARM_CLIENT_SECRET="00000000-0000-0000-0000-000000000000"
 $ export ARM_SUBSCRIPTION_ID="00000000-0000-0000-0000-000000000000"
 $ export ARM_TENANT_ID="00000000-0000-0000-0000-000000000000"
 
-
-
+#import Resource group
+terraform import azurerm_resource_group.RG_ADM /subscriptions/aa5e6421-56b7-48bf-b549-4367bb60988f/resourceGroups/RG-ADM
+#import dns Zone
+terraform import azurerm_dns_zone.dnfcorp /subscriptions/aa5e6421-56b7-48bf-b549-4367bb60988f/resourceGroups/RG-ADM/providers/Microsoft.Network/dnszones/dnfcorp.com.br
 
