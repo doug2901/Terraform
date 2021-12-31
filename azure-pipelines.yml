@@ -10,9 +10,9 @@ pool:
 
 steps:
 - bash: 
+    git clone https://oauth2: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@github.com/doug2901/Terraform.git
+    cd Terraform/study_project/
+    ls -ltr
+- bash: 
     terraform -version
   displayName: 'Terraform-Configuration'
-
-- bash:
-    cd $(System.DefaultWorkingDirectory)/study_project
-    ls
