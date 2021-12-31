@@ -7,3 +7,7 @@ steps:
 - bash: 
     terraform -version
   displayName: 'Terraform-Configuration'
+
+- bash:
+    cd $(System.DefaultWorkingDirectory)/study_project
+    ls
