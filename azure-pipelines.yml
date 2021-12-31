@@ -9,5 +9,5 @@ steps:
   displayName: 'Terraform-Configuration'
 
 - bash:
-    cd $(System.DefaultWorkingDirectory)/Terraform/study_project
+    cd $(System.DefaultWorkingDirectory)/study_project
     ls
