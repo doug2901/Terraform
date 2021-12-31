@@ -15,6 +15,7 @@ steps:
   env:
     GITHUB_TOKEN: $(GITHUB_TOKEN)
   displayName: 'Cloning repo'
+  
 - bash:
     terraform -chdir=Terraform/study_project/ init
   env:
@@ -23,9 +24,7 @@ steps:
     ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
     ARM_TENANT_ID: $(ARM_TENANT_ID)
   displayName: 'Initializing Terraform'
+
 - bash: 
-    cd Terraform/study_project/ && ls -ltr
-  displayName: 'geting the folcer'
-- bash: 
-    terraform plan -out=tfPlan
+    cd Terraform/study_project/ && terraform plan -out=tfPlan
   displayName: 'Terraform Planning'
