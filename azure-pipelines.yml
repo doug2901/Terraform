@@ -24,5 +24,8 @@ steps:
     ARM_TENANT_ID: $(ARM_TENANT_ID)
   displayName: 'Initializing Terraform'
 - bash: 
+    cd Terraform/study_project/ && ls -ltr
+  displayName: 'geting the folcer'
+- bash: 
     terraform plan -out=tfPlan
   displayName: 'Terraform Planning'
