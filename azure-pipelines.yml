@@ -14,8 +14,15 @@ steps:
     git clone https://oauth2:$GITHUB_TOKEN@github.com/doug2901/Terraform.git
   env:
     GITHUB_TOKEN: $(GITHUB_TOKEN)
+  displayName: 'Cloning repo'
+- bash:
+    terraform -chdir=Terraform/study_project/ init
+  env:
+    ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+    ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+    ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
+    ARM_TENANT_ID: $(ARM_TENANT_ID)
+  displayName: 'Initializing Terraform'
 - bash: 
-    cd Terraform/study_project/ && ls -ltr
-- bash: 
-    terraform -version
-  displayName: 'Terraform-Configuration'
+    terraform plan -out="Plan"
+  displayName: 'Terraform Planning'
