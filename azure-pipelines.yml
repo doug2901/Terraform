@@ -26,3 +26,11 @@ steps:
     ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
     ARM_TENANT_ID: $(ARM_TENANT_ID)
   displayName: 'Initializing & planning Terraform'
+- task: ManualValidation@0
+  timeoutInMinutes: 1440 # task times out in 1 day
+  inputs:
+    notifyUsers: 'douglas@dnfcorp.com.br'
+    instructions: 'Plase check the pipeline'
+    onTimeout: 'reject'
+- script: |
+    terraform apply
