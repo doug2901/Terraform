@@ -1,33 +1,3 @@
-<<<<<<< HEAD
-trigger:
-  branches:
-    include:
-      - main
-  paths:
-    include:
-    - study_project/*
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-
-- bash: 
-    git clone https://oauth2:$GITHUB_TOKEN@github.com/doug2901/Terraform.git
-  env:
-    GITHUB_TOKEN: $(GITHUB_TOKEN)
-  displayName: 'Cloning repo'
-
-- script: |
-    cd Terraform/study_project/
-    terraform init
-    terraform plan -out=tfPlan
-  env:
-    ARM_CLIENT_ID: $(ARM_CLIENT_ID)
-    ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
-    ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
-    ARM_TENANT_ID: $(ARM_TENANT_ID)
-  displayName: 'Initializing & planning Terraform'
-=======
 trigger:
   branches:
     include:
@@ -66,4 +36,3 @@ steps:
     ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
     ARM_TENANT_ID: $(ARM_TENANT_ID)
   displayName: 'Appying Plan'
->>>>>>> a01bd892ed6d7ea3fa43890b437f6a410db9b84d
