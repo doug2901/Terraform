@@ -27,6 +27,7 @@ steps:
     ARM_TENANT_ID: $(ARM_TENANT_ID)
   displayName: 'Initializing & planning Terraform'
 - script: |
+      cd Terraform/study_project/
       # Write-Host "LASTEXITCODE : $LASTEXITCODE"
       $plan = $(terraform show -json tfplan | ConvertFrom-Json)
       $actions = $plan.resource_changes.change.actions
