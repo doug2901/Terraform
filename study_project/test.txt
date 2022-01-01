@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 teste
 teste 2
 teste 3
@@ -8,3 +9,24 @@ teste 7
 teste 8
 teste 9
 teste 10
+=======
+teste
+teste 2
+teste 3
+teste 4
+teste 5
+teste 6
+teste 7
+teste 8
+teste 9
+teste 10
+teste 11
+teste 12
+13
+14
+15
+16
+17
+18
+19
+>>>>>>> a01bd892ed6d7ea3fa43890b437f6a410db9b84d
