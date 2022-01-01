@@ -26,8 +26,17 @@ steps:
     ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
     ARM_TENANT_ID: $(ARM_TENANT_ID)
   displayName: 'Initializing & planning Terraform'
-- task: ManualValidation@0
-  inputs:
-    notifyUsers: 'douglas@dnfcorp.com.br'
-    instructions: 'check the pipeline'
-
+- script: |
+      # Write-Host "LASTEXITCODE : $LASTEXITCODE"
+      $plan = $(terraform show -json tfplan | ConvertFrom-Json)
+      $actions = $plan.resource_changes.change.actions
+      Write-Host "Terraform actions : $actions"
+      if (($actions -contains 'create') -or ($actions -contains 'delete') -or ($actions -contains 'update'))
+      {
+        Write-Host "Terraform will perform the following actions : $actions"
+        Write-Host "##vso[task.setvariable variable=anyTfChanges;]true"
+      }
+      else
+      {
+        Write-Host "There is no change detected in Terraform tfplan file"
+      }
