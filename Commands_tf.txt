@@ -1,5 +1,5 @@
 # Rodar o docker no Linux
-docker run --name terraform -it -v $PWD:/terraform -w /terraform --entrypoint "" hashicorp/terraform:light /bin/bash
+docker run --name terraform -it -v $PWD:/terraform -w /terraform --entrypoint "" hashicorp/terraform:light /bin/sh
 
 #Iniciar container
 docker start terraform
