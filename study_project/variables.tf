@@ -35,13 +35,20 @@ variable "oci_public_ssh_key" {
 
 variable "my_public_ip" {
   type    = string
-  default = "187.88.13.137/32"
+  default = "177.76.33.202/32"
 }
 
 variable "oci_ubuntu_image" {
   type    = string
   default = "ocid1.image.oc1.iad.aaaaaaaahurkvznjb2xozs3vteeg7goqq7r2zfna2tnqau37f2bydnbkboka"
 }
+
+variable "oci_ubuntu_arm_image" {
+  type    = string
+  default = "ocid1.image.oc1.iad.aaaaaaaai42i6avvfxqawj3bjl5uzhlyq5lqkqhbeg4lpo5corvwqgnvrloq"
+}
+
+
 
 variable "oci_rocky_image" {
   type    = string
