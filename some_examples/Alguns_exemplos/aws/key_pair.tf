@@ -1,0 +1,4 @@
+resource "aws_key_pair" "terraform-study" {
+  key_name   = var.key_pair
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAkEMPNn/n+67EFXJ5TMlELPLrFLvll0RVSMVoCL5P2TFCl1ibgNkfl0l7cmtVpFQSwsyotvE+qZ0wakxV4oOev53RUGsAARvsn5s6vjT7H8bSrQG07TgLWeSVWh4xb9icWTJGcC1tIYPEzX0TmEzn8Xt/8d8OHZWn9i0+VcaWYoxhTW08eOjnQM6Zig93MUHlRY5fiK+e6yU24JhXDwjUGtbSBdfU0eSzSrhymUrBPuWcP4jy1IJtCbNidYYMN4XPeZ8spGNhXL9EQQLzotBkD+iKKDcNEWh5Tn6Fa+87cOcl4SrO107RzGsjfJ8zu5ZGCpkBb5G6Z5UzEmNea19Btw== rsa-key-20210122"
+}
