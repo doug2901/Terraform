@@ -29,12 +29,11 @@ jobs:
         run: terraform init
 
       - name: Terraform Plan
-        run: terraform plan -out=tfplan
-
-      - name: Save plan to file
-        run: terraform show -no-color tfplan > plan.txt
+        run: |
+          run: terraform plan -detailed-exitcode -out=tfplan || exit_code=$?; echo "exit_code=${exit_code:-$?}" >> $GITHUB_OUTPUT
 
       - name: Send plan via email
+        if: steps.plan.outputs.exit_code == '2'
         uses: dawidd6/action-send-mail@v6
         with:
           server_address: smtp.gmail.com
@@ -45,8 +44,7 @@ jobs:
           to: ${{ secrets.SMTP_USER }}
           from: "Terraform Bot <${{ secrets.SMTP_USER }}>"
           body: |
-            Segue abaixo o resultado do Terraform Plan:
-            
-            ${{ github.run_id }}
+            Foram detectadas alterações no Terraform.  
+            Segue o diff abaixo:
 
-          attachments: plan.txt
+            ${{ steps.plan.outputs.stdout }}
