@@ -13,3 +13,6 @@ jobs:
 
       - name: ls files
         run: ls -ltr
+
+      - name: Terrraform version
+        run: terraform -version
