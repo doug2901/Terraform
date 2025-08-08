@@ -30,7 +30,7 @@ jobs:
 
       - name: Terraform Plan
         run: |
-          run: terraform plan -detailed-exitcode -out=tfplan || exit_code=$?; echo "exit_code=${exit_code:-$?}" >> $GITHUB_OUTPUT
+          terraform plan -detailed-exitcode -out=tfplan || exit_code=$?; echo "exit_code=${exit_code:-$?}" >> $GITHUB_OUTPUT
 
       - name: Send plan via email
         if: steps.plan.outputs.exit_code == '2'
