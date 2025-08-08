@@ -30,7 +30,20 @@ jobs:
 
       - name: Terraform Plan
         run: |
-          terraform plan -detailed-exitcode -out=tfplan || exit_code=$?; echo "exit_code=${exit_code:-$?}" >> $GITHUB_OUTPUT
+          set +e
+          terraform plan -detailed-exitcode -input=false -out=tfplan
+          exit_code=$?
+          set -e
+          if [ $exit_code -eq 2 ]; then
+            echo "There are pending changes."
+            exit 0
+          elif [ $exit_code -eq 0 ]; then
+            echo "No changes detected in the Terraform plan."
+            exit 0
+          else
+            echo "Terraform plan failed."
+            exit 1
+          fi
 
       - name: Send plan via email
         if: steps.plan.outputs.exit_code == '2'
