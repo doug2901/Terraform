@@ -14,5 +14,18 @@ jobs:
       - name: ls files
         run: ls -ltr
 
-      - name: Terrraform version
-        run: terraform -version
+      - name: Instalar Terraform CLI
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.12.2"  # ou sua versão preferida
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -out=tfplan
+
+#      - name: Terraform Apply
+#        if: github.ref == 'refs/heads/main'
+#        run: terraform apply -auto-approve tfplan
