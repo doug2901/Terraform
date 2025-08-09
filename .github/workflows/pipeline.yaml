@@ -33,6 +33,8 @@ jobs:
           set +e
           terraform plan -detailed-exitcode -input=false -out=tfplan
           exit_code=$?
+          echo "listando numero da saida:"
+          echo $exit_code
           set -e
           if [ $exit_code -eq 2 ]; then
             echo "There are pending changes."
