@@ -32,7 +32,7 @@ jobs:
         run: |
           set +e
           terraform plan -detailed-exitcode -input=false -out=tfplan
-          exit_code=$?
+          echo "exit_code=$LASTEXITCODE" >> $env:GITHUB_OUTPUT
           echo "listando numero da saida:"
           echo $exit_code
           set -e
