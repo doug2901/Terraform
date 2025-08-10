@@ -81,7 +81,7 @@ jobs:
         run: ls -ltr
       - name: Upload artifacts
         if: steps.plan.outcome == 'success' && steps.plan.outputs.exitcode == '2'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: state_file-${{ steps.bump.outputs.new_tag }}
           path: state_file-${{ steps.bump.outputs.new_tag }}
