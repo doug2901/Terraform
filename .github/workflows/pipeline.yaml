@@ -29,26 +29,29 @@ jobs:
         run: terraform init
 
       - name: Terraform Plan
+        id: plan
+        run: terraform plan -detailed-exitcode -out=tfplan || export exitcode=$?
+        continue-on-error: true # Allow the step to continue even if -detailed-exitcode returns 2
+
+      - name: Check Plan Exit Code
+        if: steps.plan.outcome == 'success' && steps.plan.outputs.exitcode == '2'
         run: |
-          set +e
-          terraform plan -out=plan.tfplan ; echo $?
-          exit_code=$?
-          echo "listando numero da saida:"
-          echo $exit_code
-          set -e
-          if [ $exit_code -eq 2 ]; then
-            echo "There are pending changes."
-            exit 0
-          elif [ $exit_code -eq 0 ]; then
-            echo "No changes detected in the Terraform plan."
-            exit 0
-          else
-            echo "Terraform plan failed."
-            exit 1
-          fi
+          echo "Terraform plan detected changes. Proceeding with apply (or manual approval)."
+          # Add logic for manual approval or direct apply here
+
+      - name: No Changes Detected
+        if: steps.plan.outcome == 'success' && steps.plan.outputs.exitcode == '0'
+        run: |
+          echo "No changes detected by Terraform plan. Skipping apply."
+
+      - name: Terraform Plan Failed
+        if: steps.plan.outcome == 'failure' || steps.plan.outputs.exitcode == '1'
+        run: |
+          echo "Terraform plan failed. Review the logs for errors."
+          exit 1 # Fail the workflow
 
       - name: Send plan via email
-        if: steps.plan.outputs.exit_code == '2'
+        if: steps.plan.outcome == 'success' && steps.plan.outputs.exitcode == '2'
         uses: dawidd6/action-send-mail@v6
         with:
           server_address: smtp.gmail.com
