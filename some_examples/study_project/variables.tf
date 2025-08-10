@@ -15,12 +15,12 @@ variable "oci_user_ocid" {
 
 variable "oci_fingerprint" {
   type    = string
-  default = "40:09:91:81:5a:07:0c:18:ea:47:0f:38:30:16:08:be"
+  default = ""
 }
 
 variable "oci_private_key_path" {
   type    = string
-  default = "E:\\OneDrive\\Study\\Cloud\\oci\\terraform\\terraform.pem"
+  default = ""
 }
 
 variable "oci_root_compartment_id" {
@@ -30,7 +30,7 @@ variable "oci_root_compartment_id" {
 
 variable "oci_public_ssh_key" {
   type    = string
-  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8TeteWxq/lkAWSusHgbK2s0ccpw4eifD27IdDhtBFYw62+uBV/rtT3/u5tfo34vadSKLWTrKPsqru4PmqVRayWjGurdhTYYgLFKf8TcG0o7EaplcENghoiZpHcoh8dGRhPvJHpfljP+d/USSUZDVtBD1FM55KEy03vVLy4blAL/vj5K0hOvs2pmiRPkk+rof9O7RyYhC2+9aVaf4Ch29dr/ddfdUjNxuc6kVlfjqPIWWwqcTx5QfQZNYMhAN8YClMvI+/05R2YGdjqbcB/WV3DdRXj9pXPYmFaW4CkGOFmaOiYebcYVr6XSSE8w+acr8WLBmwIY9lxMbanWFjIIo9 ssh-key-2023-09-13"
+  default = ""
 }
 
 variable "my_public_ip" {
