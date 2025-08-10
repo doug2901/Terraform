@@ -41,7 +41,7 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        run: terraform plan -detailed-exitcode -out=tfplan || export exitcode=$?
+        run: terraform plan -detailed-exitcode -out=state_file-${{ steps.bump.outputs.new_tag }} || export exitcode=$?
         continue-on-error: true # Allow the step to continue even if -detailed-exitcode returns 2
 
       - name: Check Plan Exit Code
@@ -77,3 +77,11 @@ jobs:
             Segue o diff abaixo:
 
             ${{ steps.plan.outputs.stdout }}
+      - name: ls files
+        run: ls -ltr
+      - name: Upload artifacts
+        if: steps.plan.outcome == 'success' && steps.plan.outputs.exitcode == '2'
+        uses: actions/upload-artifact@v3
+        with:
+          name: state_file-${{ steps.bump.outputs.new_tag }}
+          path: state_file-${{ steps.bump.outputs.new_tag }}
