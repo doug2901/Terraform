@@ -34,7 +34,7 @@ jobs:
       - name: Install Terraform CLI
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: "1.12.2"  # ou sua versão preferida
+          terraform_version: "1.12.2"
 
       - name: Terraform Init
         run: terraform init
@@ -45,6 +45,7 @@ jobs:
         continue-on-error: true # Allow the step to continue even if -detailed-exitcode returns 2
 
       - name: Check Plan Exit Code
+        id: check_plan
         if: steps.plan.outcome == 'success' && steps.plan.outputs.exitcode == '2'
         run: |
           echo "Terraform plan detected changes. Proceeding with apply (or manual approval)."
@@ -73,10 +74,11 @@ jobs:
           to: ${{ secrets.SMTP_USER }}
           from: "Terraform <${{ secrets.SMTP_USER }}>"
           body: |
-            Foram detectadas alterações no Terraform.  
-            Segue o diff abaixo:
+            Foram detectadas alterações a serem feitas em sua infraestrutura.
 
-            ${{ steps.plan.outputs.stdout }}
+            Aprove ou rejeite aqui:
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
       - name: ls files
         run: ls -ltr
       - name: Upload artifacts
@@ -85,3 +87,28 @@ jobs:
         with:
           name: state_file-${{ steps.bump.outputs.new_tag }}
           path: state_file-${{ steps.bump.outputs.new_tag }}
+
+  Terraform-Apply:
+    runs-on: ubuntu-latest
+    environment: pre-prod-apply
+    if: needs.Terraform-Plan.outputs.check_plan == '2'
+    env:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+    steps:
+      - name: Get build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: state_file-${{ steps.bump.outputs.new_tag }}
+          path: ./state_file-${{ steps.bump.outputs.new_tag }}
+
+      - name: Install Terraform CLI
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.12.2"
+
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply -auto-approve -out=state_file-${{ steps.bump.outputs.new_tag }}
