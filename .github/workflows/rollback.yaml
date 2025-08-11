@@ -30,5 +30,10 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan
+        continue-on-error: true
+
       - name: Terraform Apply Rollback
         run: terraform apply -auto-approve
