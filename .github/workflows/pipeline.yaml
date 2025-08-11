@@ -10,7 +10,7 @@ jobs:
     environment: pre-prod
     outputs:
       plan_exitcode: ${{ steps.plan.outputs.exitcode }}
-      version_tag: ${{ steps.bump.outputs.new_tag }}
+      version_tag: ${{ steps.bump.outputs.version_tag }}
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
@@ -30,6 +30,7 @@ jobs:
       - name: Versão criada
         run: | 
           echo "Tag criada: ${{ steps.bump.outputs.new_tag }}"
+          echo "version_tag=${{ steps.bump.outputs.new_tag }}" >> $GITHUB_OUTPUT
 
       - name: ls files
         run: ls -ltr
