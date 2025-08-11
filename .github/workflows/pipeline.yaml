@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: pre-prod
     outputs:
-      plan_exitcode: ${{ steps.set-exitcode.outputs.plan }}
+      plan_exitcode: ${{ steps.plan.outputs.exitcode }}
       version_tag: ${{ steps.bump.outputs.new_tag }}
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
@@ -47,7 +47,7 @@ jobs:
         run: terraform plan -detailed-exitcode -out=state_file-${{ steps.bump.outputs.new_tag }} || export exitcode=$? >> $GITHUB_OUTPUT
         continue-on-error: true # Allow the step to continue even if -detailed-exitcode returns 2
 
-      - name: Use the value
+      - name: get value of terraform plan
         run: |
          echo "The value is: ${{ steps.plan.outputs.exitcode }}"
 
