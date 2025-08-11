@@ -89,8 +89,10 @@ jobs:
 
       - name: ls files
         run: ls -ltr
+
       - name: Upload artifacts
         if: steps.plan.outcome == 'success' && steps.plan.outputs.exitcode == '2'
+
         uses: actions/upload-artifact@v4
         with:
           name: state_file-${{ steps.bump.outputs.new_tag }}
@@ -111,7 +113,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: state_file-${{ needs.Terraform-Plan.outputs.version_tag }}
-          path: ./state_file-${{ needs.Terraform-Plan.outputs.version_tag }}
+          path: terraform_plan_artifacts
 
       - name: Install Terraform CLI
         uses: hashicorp/setup-terraform@v3
@@ -120,4 +122,6 @@ jobs:
 
       - name: Terraform Apply
         id: apply
-        run: terraform apply -auto-approve -out=state_file-${{ needs.Terraform-Plan.outputs.version_tag }}
+        run: |
+          cd terraform_plan_artifacts
+          terraform apply -auto-approve -out=state_file-${{ needs.Terraform-Plan.outputs.version_tag }}
