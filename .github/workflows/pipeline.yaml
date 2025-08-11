@@ -87,11 +87,11 @@ jobs:
             Aprove ou rejeite aqui:
             https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-      - name: ls files
-        run: ls -ltra
-
       - name: Remove some_examples folders
         run: rm -rf some_examples
+
+      - name: ls files
+        run: ls -ltra
 
       - name: Upload artifacts
         if: steps.plan.outcome == 'success' && steps.plan.outputs.exitcode == '2'
