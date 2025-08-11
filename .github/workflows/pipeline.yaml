@@ -110,8 +110,8 @@ jobs:
       - name: Get build artifacts
         uses: actions/download-artifact@v4
         with:
-          name: state_file-${{ steps.bump.outputs.new_tag }}
-          path: ./state_file-${{ steps.bump.outputs.new_tag }}
+          name: state_file-${{ needs.Terraform-Plan.outputs.version_tag }}
+          path: ./state_file-${{ needs.Terraform-Plan.outputs.version_tag }}
 
       - name: Install Terraform CLI
         uses: hashicorp/setup-terraform@v3
