@@ -30,7 +30,7 @@ jobs:
       - name: Versão criada
         run: | 
           echo "Tag criada: ${{ steps.bump.outputs.new_tag }}"
-          echo "version_tag=${{ steps.bump.outputs.new_tag }}" >> $GITHUB_OUTPUT
+#          echo "version_tag=${{ steps.bump.outputs.new_tag }}" >> $GITHUB_OUTPUT
 
       - name: ls files
         run: ls -ltr
@@ -50,7 +50,7 @@ jobs:
 
       - name: get value of terraform plan
         run: |
-         echo "The value is: ${{ steps.plan.outputs.exitcode }}"
+          echo "The value is: ${{ steps.plan.outputs.exitcode }}"
 
       - name: Check Plan Exit Code
         id: check_plan
@@ -78,7 +78,7 @@ jobs:
           server_port: 587 
           username: ${{ secrets.SMTP_USER }}
           password: ${{ secrets.SMTP_PASS }}
-          subject: "O Terraform Inforrrrma - ${{ github.repository }}"
+          subject: "O ${{ github.repository }} Inforrrrrma"
           to: ${{ secrets.SMTP_USER }}
           from: "Terraform <${{ secrets.SMTP_USER }}>"
           body: |
@@ -120,4 +120,4 @@ jobs:
 
       - name: Terraform Apply
         id: apply
-        run: terraform apply -auto-approve -out=state_file-${{ steps.bump.outputs.new_tag }}
+        run: terraform apply -auto-approve -out=state_file-${{ needs.Terraform-Plan.outputs.version_tag }}
