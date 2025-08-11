@@ -44,13 +44,12 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        run: terraform plan -detailed-exitcode -out=state_file-${{ steps.bump.outputs.new_tag }} || true #export exitcode=$?
+        run: terraform plan -detailed-exitcode -out=state_file-${{ steps.bump.outputs.new_tag }} || export exitcode=$? >> $GITHUB_OUTPUT
         continue-on-error: true # Allow the step to continue even if -detailed-exitcode returns 2
-      - name: Capture Exit Code
-        id: set-exitcode
+
+      - name: Use the value
         run: |
-          echo "plan=$?" >> $GITHUB_OUTPUT
-          echo " Exit Code $plan"
+         echo "The value is: ${{ steps.plan.outputs.exitcode }}"
 
       - name: Check Plan Exit Code
         id: check_plan
