@@ -1,4 +1,4 @@
-name: Terraform Rollback
+name: Terraform Rollback para ${{ github.event.inputs.rollback_tag }}
 
 on:
   workflow_dispatch:
@@ -31,10 +31,19 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      - name: Terraform Validate
+        run: terraform validate
+
       - name: Terraform Plan
         id: plan
         run: terraform plan
-        continue-on-error: true
+
+      - name: Check Plan Result
+        if: steps.plan.outcome != 'success'
+        run: |
+          echo "Terraform plan falhou, abortando rollback."
+          exit 1
 
       - name: Terraform Apply Rollback
+        if: steps.plan.outcome == 'success'
         run: terraform apply -auto-approve

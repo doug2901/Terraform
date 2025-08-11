@@ -43,6 +43,9 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      - name: Terraform Validate
+        run: terraform validate
+
       - name: Terraform Plan
         id: plan
         run: terraform plan -detailed-exitcode -out=state_file-${{ steps.bump.outputs.new_tag }} || export exitcode=$? >> $GITHUB_OUTPUT
