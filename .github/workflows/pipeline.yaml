@@ -88,7 +88,7 @@ jobs:
             https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
       - name: ls files
-        run: ls -ltr
+        run: ls -ltra
 
       - name: Upload artifacts
         if: steps.plan.outcome == 'success' && steps.plan.outputs.exitcode == '2'
@@ -120,8 +120,12 @@ jobs:
         with:
           terraform_version: "1.12.2"
 
+      - name: Terraform Init
+        run: terraform init
+        working-directory: terraform_plan_artifacts
+
       - name: Terraform Apply
         id: apply
+        working-directory: terraform_plan_artifacts
         run: |
-          cd terraform_plan_artifacts
           terraform apply -auto-approve state_file-${{ needs.Terraform-Plan.outputs.tag }}
