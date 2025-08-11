@@ -10,7 +10,7 @@ jobs:
     environment: pre-prod
     outputs:
       plan_exitcode: ${{ steps.plan.outputs.exitcode }}
-      version_tag: ${{ steps.bump.outputs.version_tag }}
+      tag: ${{ steps.bump.outputs.version_tag }}
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
@@ -112,7 +112,7 @@ jobs:
       - name: Get build artifacts
         uses: actions/download-artifact@v4
         with:
-          name: state_file-${{ needs.Terraform-Plan.outputs.version_tag }}
+          name: state_file-${{ needs.Terraform-Plan.outputs.tag }}
           path: terraform_plan_artifacts
 
       - name: Install Terraform CLI
@@ -124,4 +124,4 @@ jobs:
         id: apply
         run: |
           cd terraform_plan_artifacts
-          terraform apply -auto-approve -out=state_file-${{ needs.Terraform-Plan.outputs.version_tag }}
+          terraform apply -auto-approve -out=state_file-${{ needs.Terraform-Plan.outputs.tag }}
