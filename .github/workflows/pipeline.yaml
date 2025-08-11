@@ -48,7 +48,9 @@ jobs:
         continue-on-error: true # Allow the step to continue even if -detailed-exitcode returns 2
       - name: Capture Exit Code
         id: set-exitcode
-        run: echo "plan=$?" >> $GITHUB_OUTPUT
+        run: |
+          echo "plan=$?" >> $GITHUB_OUTPUT
+          echo " Exit Code $plan"
 
       - name: Check Plan Exit Code
         id: check_plan
