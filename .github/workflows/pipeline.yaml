@@ -87,8 +87,12 @@ jobs:
             Aprove ou rejeite aqui:
             https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-      - name: Remove some_examples folders
-        run: rm -rf some_examples
+      - name: Remove unnecessary folders
+        run: |
+          rm -rf some_examples
+          rm -rf .github
+          rm -rf .gitignore
+          rm -rf .git
 
       - name: ls files
         run: ls -ltra
