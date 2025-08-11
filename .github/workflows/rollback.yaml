@@ -1,4 +1,5 @@
-name: Terraform Rollback para ${{ github.event.inputs.rollback_tag }}
+name: Terraform Rollback
+run-name: Terraform Rollback para ${{ inputs.rollback_tag }} solicitado por ${{ github.actor }}
 
 on:
   workflow_dispatch:
