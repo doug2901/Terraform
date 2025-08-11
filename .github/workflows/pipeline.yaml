@@ -8,6 +8,9 @@ jobs:
   Terraform-Plan:
     runs-on: ubuntu-latest
     environment: pre-prod
+    outputs:
+      plan_exitcode: ${{ steps.set-exitcode.outputs.exitcode }}
+      version_tag: ${{ steps.bump.outputs.new_tag }}
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
