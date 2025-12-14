@@ -1,8 +1,11 @@
 name: Terraform Apply
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
+    paths:
+      - '**/*.tf'
 
 jobs:
   Terraform-Plan:
@@ -38,7 +41,7 @@ jobs:
       - name: Install Terraform CLI
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: "1.12.2"
+          terraform_version: "1.14.2"
 
       - name: Terraform Init
         run: terraform init
@@ -128,7 +131,7 @@ jobs:
       - name: Install Terraform CLI
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: "1.12.2"
+          terraform_version: "1.14.2"
 
       - name: Terraform Init
         run: terraform init
