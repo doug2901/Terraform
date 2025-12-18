@@ -1,7 +1,7 @@
 resource "azurerm_dns_zone" "dnfcorp" {
   name                = "dnfcorp.com.br"
   resource_group_name = azurerm_resource_group.RG-ADM.name
-  tags = {Study_Project = "DNS"}
+  tags                = { Study_Project = "DNS" }
 }
 
 resource "azurerm_dns_a_record" "mimir" {

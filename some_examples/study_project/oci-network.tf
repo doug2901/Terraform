@@ -26,54 +26,54 @@ resource "oci_core_route_table" "PublicRouteTable" {
   display_name   = "PublicRouteTable"
 
   route_rules {
-    destination     = "0.0.0.0/0"
+    destination       = "0.0.0.0/0"
     network_entity_id = oci_core_internet_gateway.bifrost_internet_gateway.id # Associar com o gateway de internet
   }
 }
 
 
 resource "oci_core_security_list" "heimdall" {
+  #Required
+  compartment_id = oci_identity_compartment.valhalla.id
+  vcn_id         = oci_core_virtual_network.bifrost.id
+
+  #Optional
+  freeform_tags = {
+    "Created_with" = "Terraform"
+    "Environment"  = "Development"
+  }
+  display_name = "heimdall"
+
+  egress_security_rules {
     #Required
-    compartment_id = oci_identity_compartment.valhalla.id
-    vcn_id = oci_core_virtual_network.bifrost.id
+    destination = "0.0.0.0/0"
+    protocol    = "all"
+  }
+  ingress_security_rules {
+    #Required
+    protocol = 6
+    source   = var.my_public_ip
 
     #Optional
-        freeform_tags = {
-        "Created_with"= "Terraform"
-        "Environment"= "Development"
-        }
-    display_name = "heimdall"
-
-    egress_security_rules {
-        #Required
-        destination = "0.0.0.0/0"
-        protocol = "all"
+    description = "enable SSH"
+    source_type = "CIDR_BLOCK"
+    tcp_options {
+      max = 22
+      min = 22
     }
-    ingress_security_rules {
-        #Required
-        protocol = 6
-        source = var.my_public_ip
+  }
+  ingress_security_rules {
+    #Required
+    protocol = 6
+    source   = var.my_public_ip
 
-        #Optional
-        description = "enable SSH"
-        source_type = "CIDR_BLOCK"
-        tcp_options {
-            max = 22
-            min = 22
-        }
+    #Optional
+    description = "enable MYSQL"
+    source_type = "CIDR_BLOCK"
+    tcp_options {
+      max = 3306
+      min = 3306
     }
-    ingress_security_rules {
-        #Required
-        protocol = 6
-        source = var.my_public_ip
-
-        #Optional
-        description = "enable MYSQL"
-        source_type = "CIDR_BLOCK"
-        tcp_options {
-            max = 3306
-            min = 3306
-        }
-    }
+  }
 
 }
